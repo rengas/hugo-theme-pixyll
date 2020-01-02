@@ -5,14 +5,14 @@
     <div class="measure">
       <div class="post-header mb2">
         <h1 class="py2">{{ .Title }}</h1>
-        <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} by {{ .Params.author }}</span><br>
+        <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} </span><br>
         {{ $baseurl := .Site.BaseURL }}
       </div>
 
       <article class="post-content">
       {{ .Content }}
       </article>
-
+      {{ partial "share-buttons.html" . }}
       <p class="post-meta">{{ i18n "tags" }}:&nbsp;
         {{ range $i, $e := .Params.tags }}
             {{if $i}},&nbsp;{{end}}
@@ -23,5 +23,6 @@
       {{ partial "comments.html" . }}
     </div>
   </div>
+
 </div>
 {{ partial "footer.html" . }}
